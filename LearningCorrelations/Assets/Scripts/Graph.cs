@@ -44,8 +44,8 @@ public class Graph : MonoBehaviour
         //loop through the number of desired points
         for (int i = 0; i < num; i++){
             //set a random location for each point
-            float xPosition = Random.Range(0, graphWidth);
-            float yPosition = Random.Range(0, graphHeight);
+            float xPosition = Random.Range(2, graphWidth - 2);
+            float yPosition = Random.Range(2, graphHeight - 2);
             //create each point with new random location
             CreatePoints(new Vector2(xPosition, yPosition));
         }
