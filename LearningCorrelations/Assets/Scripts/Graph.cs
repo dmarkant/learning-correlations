@@ -67,22 +67,11 @@ public class Graph : MonoBehaviour
 
             //create each point with new random location
             CreatePoints(new Vector2(xPosition, yPosition));
-
+            
             //add points to list
             x.Add(xPosition);
             y.Add(yPosition);
         }
     }
 
-
-    // Start is called before the first frame update
-   // void Start(){
-        
-   // }
-
-    // Update is called once per frame
-    //void Update()
-    //{
-        
-    //}
 }
