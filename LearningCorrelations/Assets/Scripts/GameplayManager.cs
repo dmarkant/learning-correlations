@@ -11,6 +11,7 @@ public class GameplayManager : MonoBehaviour
     public Text showCorr;
 
     public void updateCorrelation(List<int> x, List<int> y){
+
         //values for pearson correlation coefficient
         double sum_X = 0, sum_Y = 0;
         double meanx = 0, meany = 0, devsqrdX = 0, devsqrdY = 0, combxy = 0;
@@ -51,6 +52,13 @@ public class GameplayManager : MonoBehaviour
         //output correlation - round to 2 decimal places
         corr = (double) Math.Round(corr, 2, MidpointRounding.AwayFromZero);
         showCorr.text = "Pearson Correlation: " + corr.ToString();
+
+        // use formula for calculating correlation coefficient. 
+        //double corr = (double)(n * sum_XY - sum_X * sum_Y) /
+        //      (Math.Sqrt(n * squareSum_X - sum_X * sum_X) *
+        //       Math.Sqrt(n * squareSum_Y - sum_Y * sum_Y));
+
+        print(corr);
 
     }
 
