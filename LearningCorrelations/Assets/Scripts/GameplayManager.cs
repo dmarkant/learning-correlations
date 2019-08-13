@@ -9,7 +9,18 @@ public class GameplayManager : MonoBehaviour
 {
     //reference for text box
     public Text showCorr;
+    public Text showText;
+    public Text showDiff;
 
+    //reference for input field
+    public InputField guessInput;
+
+    //variables to save
+    double userGuess = 0;
+    double corr = 0;
+    double guessDiff = 0;
+
+    //Method to calculate the correlation value
     public void updateCorrelation(List<int> x, List<int> y){
 
         //values for pearson correlation coefficient
@@ -47,11 +58,11 @@ public class GameplayManager : MonoBehaviour
         }
 
         //pearson correlation equation
-        double corr = (double)combxy / Math.Sqrt(devsqrdX * devsqrdY);
+        corr = (double)combxy / Math.Sqrt(devsqrdX * devsqrdY);
 
         //output correlation - round to 2 decimal places
         corr = (double) Math.Round(corr, 2, MidpointRounding.AwayFromZero);
-        showCorr.text = "Pearson Correlation: " + corr.ToString();
+        //showCorr.text = "Pearson Correlation: " + corr.ToString();
 
         // use formula for calculating correlation coefficient. 
         //double corr = (double)(n * sum_XY - sum_X * sum_Y) /
@@ -60,6 +71,19 @@ public class GameplayManager : MonoBehaviour
 
         print(corr);
 
+    }
+
+    //show entered guess and calculate difference
+    public void guessCalculation(){
+        showText.text = guessInput.text;
+
+        showCorr.text = "Pearson Correlation: " + corr.ToString();
+
+        userGuess = double.Parse(guessInput.text);
+
+        guessDiff = userGuess - corr;
+
+        showDiff.text = guessDiff.ToString();
     }
 
 
