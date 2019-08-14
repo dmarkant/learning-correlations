@@ -15,6 +15,9 @@ public class GameplayManager : MonoBehaviour
     //reference for input field
     public InputField guessInput;
 
+    //reference for next button
+    public GameObject nextButton;
+
     //variables to save
     double userGuess = 0;
     double corr = 0;
@@ -84,6 +87,10 @@ public class GameplayManager : MonoBehaviour
         guessDiff = userGuess - corr;
 
         showDiff.text = guessDiff.ToString();
+    }
+
+    public void enableButton(){
+        nextButton.SetActive(true);
     }
 
 
