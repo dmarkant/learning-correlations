@@ -11,6 +11,7 @@ public class GameplayManager : MonoBehaviour
     public Text showCorr;
     public Text showText;
     public Text showDiff;
+    public Text showScore;
 
     //reference for input field
     public InputField guessInput;
@@ -22,6 +23,7 @@ public class GameplayManager : MonoBehaviour
     double userGuess = 0;
     double corr = 0;
     double guessDiff = 0;
+    int score = 0;
 
     //Method to calculate the correlation value
     public void updateCorrelation(List<int> x, List<int> y){
@@ -65,12 +67,6 @@ public class GameplayManager : MonoBehaviour
 
         //output correlation - round to 2 decimal places
         corr = (double) Math.Round(corr, 2, MidpointRounding.AwayFromZero);
-        //showCorr.text = "Pearson Correlation: " + corr.ToString();
-
-        // use formula for calculating correlation coefficient. 
-        //double corr = (double)(n * sum_XY - sum_X * sum_Y) /
-        //      (Math.Sqrt(n * squareSum_X - sum_X * sum_X) *
-        //       Math.Sqrt(n * squareSum_Y - sum_Y * sum_Y));
 
         print(corr);
 
@@ -86,11 +82,37 @@ public class GameplayManager : MonoBehaviour
 
         guessDiff = userGuess - corr;
 
-        showDiff.text = guessDiff.ToString();
+        showDiff.text = "Difference: " + guessDiff.ToString();
+
+        calcScore(guessDiff, corr);
     }
 
     public void enableButton(){
+        //able to select next button
         nextButton.SetActive(true);
+    }
+
+    public void calcScore(double diff, double correlation)
+    {
+        if (diff == 0)
+        {
+            score = score + 4;
+        }
+        else if (diff <= .05 & diff >= -.05)
+        {
+            score = score + 2;
+        }
+        else if (diff >= .3 | diff <= -.3)
+        {
+            score = score - 2;
+        }
+        else
+        {
+            score = score + 0;
+        }
+
+        //show score
+        showScore.text = "SCORE: " + score.ToString();
     }
 
 
