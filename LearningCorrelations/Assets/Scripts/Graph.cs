@@ -13,8 +13,8 @@ public class Graph : MonoBehaviour
     public int pointNum = 10;
 
     //array of points to calculate correlation
-    List<int> x = new List<int>();
-    List<int> y = new List<int>();
+    public List<int> x = new List<int>();
+    public List<int> y = new List<int>();
 
     //reference gameplay manage
     private GameplayManager gameplayManager;

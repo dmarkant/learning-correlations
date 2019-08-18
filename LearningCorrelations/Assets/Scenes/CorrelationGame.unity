@@ -558,6 +558,8 @@ MonoBehaviour:
   graphContainer: {fileID: 962695759}
   pointSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   pointNum: 10
+  x: 
+  y: 
 --- !u!114 &650099096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1688,6 +1690,7 @@ GameObject:
   - component: {fileID: 1979116059}
   - component: {fileID: 1979116058}
   - component: {fileID: 1979116057}
+  - component: {fileID: 1979116060}
   m_Layer: 5
   m_Name: nextB
   m_TagString: Untagged
@@ -1809,6 +1812,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1979116055}
   m_CullTransparentMesh: 0
+--- !u!114 &1979116060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979116055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7432435a7f14220418ad5e01ff0d9721, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2014636818
 GameObject:
   m_ObjectHideFlags: 0
