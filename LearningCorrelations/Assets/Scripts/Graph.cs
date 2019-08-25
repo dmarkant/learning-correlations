@@ -19,6 +19,9 @@ public class Graph : MonoBehaviour
     //reference gameplay manage
     private GameplayManager gameplayManager;
 
+    //create list to do thing with points
+    public List<GameObject> points = new List<GameObject>();
+
     //when graph component starts up
     void Awake(){
         //grab gameplay manager
@@ -51,6 +54,9 @@ public class Graph : MonoBehaviour
         rectTransform.sizeDelta = new Vector2(11, 11);
         rectTransform.anchorMin = new Vector2(0, 0);
         rectTransform.anchorMax = new Vector2(0, 0);
+
+        //add points to list to mess with later
+        points.Add(gameObject);
     }
 
     //method setting location for each point on the graph (takes in int - number of desired points)
