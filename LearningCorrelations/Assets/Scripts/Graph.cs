@@ -10,7 +10,9 @@ public class Graph : MonoBehaviour
     //reference for point sprite
     public Sprite pointSprite;
     //number of points being displayed
-    public int pointNum = 10;
+    // public int[] levels = new int[] {10, 100};
+    // public int randIndex = Random.Range(0, levels.Length);
+    public int pointNum = 0;//levels[randIndex];
 
     //array of points to calculate correlation
     public List<int> x = new List<int>();
@@ -24,6 +26,11 @@ public class Graph : MonoBehaviour
 
     //when graph component starts up
     void Awake(){
+        //points
+        int[] levels = new int[] {10, 100};
+        int randIndex = Random.Range(0, levels.Length);
+        int pointNum = levels[randIndex];
+
         //grab gameplay manager
         gameplayManager = GameObject.FindObjectOfType<GameplayManager>();
 
