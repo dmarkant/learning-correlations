@@ -614,6 +614,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\GameplayManager.cs" />
     <Compile Include="Assets\Scripts\Graph.cs" />
+    <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\nextGraph.cs" />
   </ItemGroup>
   <ItemGroup>
