@@ -13,6 +13,9 @@ public class GameplayManager : MonoBehaviour
     public Text showDiff;
     public Text showScore;
 
+    //test id transfer
+    public Text showID;
+
     //reference for input field
     public InputField guessInput;
 
@@ -24,6 +27,11 @@ public class GameplayManager : MonoBehaviour
     double corr = 0;
     double guessDiff = 0;
     int score = 0;
+
+    //start method to display id - test
+    void Start(){
+        showID.text = PlayerPrefs.GetString("participantID");
+    }
 
     //Method to calculate the correlation value
     public void updateCorrelation(List<int> x, List<int> y){
