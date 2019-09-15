@@ -27,6 +27,7 @@ public class GameplayManager : MonoBehaviour
     double corr = 0;
     double guessDiff = 0;
     int score = 0;
+    public int proficiency = 0;
 
     //start method to display id - test
     void Start(){
@@ -105,14 +106,17 @@ public class GameplayManager : MonoBehaviour
         if (diff == 0)
         {
             score = score + 4;
+            proficiency += 1;
         }
         else if (diff <= .05 & diff >= -.05)
         {
             score = score + 2;
+            proficiency += 1;
         }
         else if (diff >= .3 | diff <= -.3)
         {
             score = score - 2;
+            proficiency -= 1;
         }
         else
         {
