@@ -10,7 +10,7 @@ public class Graph : MonoBehaviour
     //reference for point sprite
     public Sprite pointSprite;
     //number of points being displayed
-    // public int[] levels = new int[] {10, 100};
+    //public int[] levels = new int[] {10, 100};
     // public int randIndex = Random.Range(0, levels.Length);
     public int pointNum = 0;//levels[randIndex];
 

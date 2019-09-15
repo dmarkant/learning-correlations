@@ -20,6 +20,9 @@ public class nextGraph : MonoBehaviour
             Destroy(newGraph.points[i]);
         }
 
+        //check proficiency
+        ProficiencyCheck(gameplayManager, newGraph);
+
         //get num of points on graph
         int points = newGraph.pointNum;
 
@@ -42,6 +45,21 @@ public class nextGraph : MonoBehaviour
         gameplayManager.showCorr.text = "Pearson Correlation: ";
         gameplayManager.showText.text = "Your Guess: ";
         
+    }
+
+    //checks to see if player has gotten correlation value correct 20 times (currently not in a row, easy change)
+    public void ProficiencyCheck(GameplayManager gp, Graph ng){
+        //check if proficiency = 20
+        if (gp.proficiency == 20) {
+            //if current level is 10 points, switch to 100
+            if(ng.pointNum == 10){
+                ng.pointNum = 100;
+            }
+            //if current level is 100 points, switch to 10
+            else if(ng.pointNum == 100) {
+                ng.pointNum = 10;
+            }
+        }
     }
 
 }
