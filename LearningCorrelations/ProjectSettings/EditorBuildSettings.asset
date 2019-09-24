@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CorrelationGame.unity
     guid: fb7269c102559e145bf2b3d9fb5a954e
+  - enabled: 1
+    path: Assets/Scenes/endScene.unity
+    guid: 5ce5c006d36aa90488817fe4cda68ecc
   m_configObjects: {}

@@ -103,6 +103,7 @@ public class GameplayManager : MonoBehaviour
 
     public void calcScore(double diff, double correlation)
     {
+        //determine score increase or decrease
         if (diff == 0)
         {
             score = score + 4;
@@ -125,6 +126,8 @@ public class GameplayManager : MonoBehaviour
 
         //show score
         showScore.text = "SCORE: " + score.ToString();
+        //save score to use across scenes
+        PlayerPrefs.SetInt("pScore", score);
     }
 
 
