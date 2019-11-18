@@ -29,9 +29,16 @@ public class GameplayManager : MonoBehaviour
     int score = 0;
     public int proficiency = 0;
 
+    //audio variables
+    public AudioSource audioSource;
+    public AudioClip correctAudio;
+    public AudioClip incorrectAudio;
+
     //start method to display id - test
     void Start(){
         showID.text = PlayerPrefs.GetString("participantID");
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     //Method to calculate the correlation value
@@ -108,20 +115,28 @@ public class GameplayManager : MonoBehaviour
         {
             score = score + 4;
             proficiency += 1;
+            //play sound
+            audioSource.PlayOneShot(correctAudio, .75f);
         }
         else if (diff <= .05 & diff >= -.05)
         {
             score = score + 2;
             proficiency += 1;
+            //play sound
+            audioSource.PlayOneShot(correctAudio, .75f);
         }
         else if (diff >= .3 | diff <= -.3)
         {
             score = score - 2;
             proficiency -= 1;
+            //play sound
+            audioSource.PlayOneShot(incorrectAudio, .75f);
         }
         else
         {
             score = score + 0;
+            //play sound
+            audioSource.PlayOneShot(incorrectAudio, .75f);
         }
 
         //show score
