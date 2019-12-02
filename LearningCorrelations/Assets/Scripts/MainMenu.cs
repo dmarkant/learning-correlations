@@ -14,6 +14,11 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetString("participantID", participantID.text);
 
         //Load next scene
+        SceneManager.LoadScene(3);
+    }
+
+    public void LeaveInstructions()
+    {
         SceneManager.LoadScene(1);
     }
 }
