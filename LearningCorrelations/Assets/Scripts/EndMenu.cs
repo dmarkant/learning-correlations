@@ -21,14 +21,14 @@ public class EndMenu : MonoBehaviour
         
         path = "Assets/Files/" + PlayerPrefs.GetString("participantID") + ".csv";
 
-        saveData(path, PlayerPrefs.GetString("participantID"), PlayerPrefs.GetInt("pScore").ToString());
+        saveData(path, PlayerPrefs.GetString("participantID"), PlayerPrefs.GetInt("condition").ToString(), PlayerPrefs.GetInt("pScore").ToString());
     }
 
     //test data saving
-    public static void saveData(string path, string pID, string pscore) {
+    public static void saveData(string path, string pID, string condition, string pscore) {
         using (System.IO.StreamWriter file = new System.IO.StreamWriter(path, true))
         {
-            file.WriteLine(pID + "," + pscore);
+            file.WriteLine(pID + "," + condition + "," + pscore);
         }
     }
 }
