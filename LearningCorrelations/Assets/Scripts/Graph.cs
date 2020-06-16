@@ -13,6 +13,7 @@ public class Graph : MonoBehaviour
     //public int[] levels = new int[] {10, 100};
     // public int randIndex = Random.Range(0, levels.Length);
     public int pointNum = 0;//levels[randIndex];
+    public int condition = 0;
 
     //array of points to calculate correlation
     public List<int> x = new List<int>();
@@ -42,6 +43,17 @@ public class Graph : MonoBehaviour
 
         //find correlation
         gameplayManager.updateCorrelation(x, y);
+
+        //save condition
+        if (pointNum == 10)
+        {
+            condition = 0;
+        }
+        else if (pointNum == 100)
+        {
+            condition = 1;
+        }
+        PlayerPrefs.SetInt("condition", condition);
     }
 
     //Creates circle for each of the dots
