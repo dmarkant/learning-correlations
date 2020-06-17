@@ -41,6 +41,14 @@ public class GameplayManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
+    void Update(){
+        if (guessInput.text != "" && Input.GetKeyDown(KeyCode.Return))
+        {
+            guessCalculation();
+            enableButton();
+        }
+    }
+
     //Method to calculate the correlation value
     public void updateCorrelation(List<int> x, List<int> y){
 
