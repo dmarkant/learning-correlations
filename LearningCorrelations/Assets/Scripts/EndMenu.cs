@@ -15,20 +15,22 @@ public class EndMenu : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
+    
         //display end information
         idTxt.text = "ID: " + PlayerPrefs.GetString("participantID");
         scoreTxt.text = "Score: " + PlayerPrefs.GetInt("pScore").ToString();  
         
         path = "Assets/Files/" + PlayerPrefs.GetString("participantID") + ".csv";
 
-        saveData(path, PlayerPrefs.GetString("participantID"), PlayerPrefs.GetInt("condition").ToString(), PlayerPrefs.GetInt("pScore").ToString());
+        saveData(path, PlayerPrefs.GetString("participantID"), PlayerPrefs.GetInt("condition").ToString(), PlayerPrefs.GetInt("r1").ToString(), 
+            PlayerPrefs.GetInt("r2").ToString(), PlayerPrefs.GetInt("pScore").ToString());
     }
 
     //test data saving
-    public static void saveData(string path, string pID, string condition, string pscore) {
+    public static void saveData(string path, string pID, string condition, string r1, string r2, string pscore) {
         using (System.IO.StreamWriter file = new System.IO.StreamWriter(path, true))
         {
-            file.WriteLine(pID + "," + condition + "," + pscore);
+            file.WriteLine(pID + "," + condition + "," + r1 + "," + r2 + "," + pscore);
         }
     }
 }

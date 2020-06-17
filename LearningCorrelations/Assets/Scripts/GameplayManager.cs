@@ -34,15 +34,21 @@ public class GameplayManager : MonoBehaviour
     public AudioClip correctAudio;
     public AudioClip incorrectAudio;
 
-    //start method to display id - test
+    //track number of trials
+    public int round1Trials = 0;
+    public int round2Trials = 0;
+
+    //start method to display id 
     void Start(){
         showID.text = PlayerPrefs.GetString("participantID");
 
         audioSource = GetComponent<AudioSource>();
     }
 
+    //update method to use enter instead of clicking the submit button
     void Update(){
-        if (guessInput.text != "" && Input.GetKeyDown(KeyCode.Return))
+        //hit enter to do same action as clicking submit
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             guessCalculation();
             enableButton();
@@ -98,24 +104,40 @@ public class GameplayManager : MonoBehaviour
 
     //show entered guess and calculate difference
     public void guessCalculation(){
-        showText.text = guessInput.text;
+        //ensure user entered answer then run code
+        if (guessInput.text != "") {
+            showText.text = "Your Guess: " + guessInput.text;
 
-        showCorr.text = "Pearson Correlation: " + corr.ToString();
+            showCorr.text = "Pearson Correlation: " + corr.ToString();
 
-        userGuess = double.Parse(guessInput.text);
+            userGuess = double.Parse(guessInput.text);
 
-        guessDiff = userGuess - corr;
+            guessDiff = userGuess - corr;
 
-        showDiff.text = "Difference: " + guessDiff.ToString();
+            showDiff.text = "Difference: " + guessDiff.ToString();
 
-        calcScore(guessDiff, corr);
+            calcScore(guessDiff, corr);
+
+            //count trial #
+            if (proficiency <= 20){
+                //round 1
+                round1Trials++;
+            }
+            else{
+                round2Trials++;
+            }
+        }
     }
 
+    //enables next button
     public void enableButton(){
-        //able to select next button
-        nextButton.SetActive(true);
+        //able to select next button if user entered answer
+        if (guessInput.text != "") {
+            nextButton.SetActive(true);
+        }
     }
 
+    //determines score based on user response
     public void calcScore(double diff, double correlation)
     {
         //determine score increase or decrease
@@ -149,8 +171,10 @@ public class GameplayManager : MonoBehaviour
 
         //show score
         showScore.text = "SCORE: " + score.ToString();
-        //save score to use across scenes
+        //save score and trials to use across scenes
         PlayerPrefs.SetInt("pScore", score);
+        PlayerPrefs.SetInt("r1", round1Trials);
+        PlayerPrefs.SetInt("r2", round2Trials);
     }
 
 
