@@ -12,7 +12,7 @@ public class Graph : MonoBehaviour
     //number of points being displayed
     //public int[] levels = new int[] {10, 100};
     // public int randIndex = Random.Range(0, levels.Length);
-    public int pointNum = 0;//levels[randIndex];
+    public int pointNum = 0;
     public int condition = 5;
 
     //array of points to calculate correlation

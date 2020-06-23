@@ -15,14 +15,21 @@ public class EndMenu : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
-    
+        //variables
+        string id = DataController.Instance.getID();
+
         //display end information
-        idTxt.text = "ID: " + PlayerPrefs.GetString("participantID");
+        idTxt.text = "ID: " + id;
+
         scoreTxt.text = "Score: " + PlayerPrefs.GetInt("pScore").ToString();  
         
-        path = "Assets/Files/" + PlayerPrefs.GetString("participantID") + ".csv";
+       //set path and save the data
+       path = "Assets/Files/" + id + ".csv";
 
-        saveData(path, PlayerPrefs.GetString("participantID"), PlayerPrefs.GetInt("condition").ToString(), PlayerPrefs.GetInt("r1").ToString(), 
+        // saveData(path, PlayerPrefs.GetString("participantID"), PlayerPrefs.GetInt("condition").ToString(), PlayerPrefs.GetInt("r1").ToString(), 
+        // PlayerPrefs.GetInt("r2").ToString(), PlayerPrefs.GetInt("pScore").ToString());
+
+        saveData(path, id, PlayerPrefs.GetInt("condition").ToString(), PlayerPrefs.GetInt("r1").ToString(),
             PlayerPrefs.GetInt("r2").ToString(), PlayerPrefs.GetInt("pScore").ToString());
     }
 

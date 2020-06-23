@@ -40,7 +40,7 @@ public class GameplayManager : MonoBehaviour
 
     //start method to display id 
     void Start(){
-        showID.text = PlayerPrefs.GetString("participantID");
+        showID.text = DataController.Instance.getID();
 
         audioSource = GetComponent<AudioSource>();
     }
