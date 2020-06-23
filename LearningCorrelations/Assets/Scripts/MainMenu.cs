@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame(){
         //save ID 
-        PlayerPrefs.SetString("participantID", participantID.text);
+        DataController.Instance.participantID = participantID.text;
 
         //Load next scene
         SceneManager.LoadScene(3);

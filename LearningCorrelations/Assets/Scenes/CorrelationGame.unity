@@ -558,6 +558,7 @@ MonoBehaviour:
   graphContainer: {fileID: 962695759}
   pointSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   pointNum: 10
+  condition: 5
   x: 
   y: 
   points: []
@@ -648,6 +649,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 849274962}
   m_CullTransparentMesh: 0
+--- !u!1 &923800845
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 923800847}
+  - component: {fileID: 923800846}
+  m_Layer: 0
+  m_Name: GlobalDataControl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &923800846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923800845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e0db5eafbc62f4bb3154b9cf491de7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &923800847
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923800845}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 539.27985, y: 186.7862, z: -33.04823}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &962695758
 GameObject:
   m_ObjectHideFlags: 0
@@ -1484,6 +1528,8 @@ MonoBehaviour:
   audioSource: {fileID: 1795563485}
   correctAudio: {fileID: 8300000, guid: 81c8f010c2e4a364d8e0ddd998e2e6e4, type: 3}
   incorrectAudio: {fileID: 8300000, guid: 7036303f2434d4a48b4e8a8a683c1032, type: 3}
+  round1Trials: 0
+  round2Trials: 0
 --- !u!4 &1795563484
 Transform:
   m_ObjectHideFlags: 0
