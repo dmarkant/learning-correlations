@@ -237,7 +237,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -66.999985, y: 17.749996}
+  m_AnchoredPosition: {x: -63, y: 25}
   m_SizeDelta: {x: 160, y: 35.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &595400484
@@ -273,7 +273,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Enter ID:'
+  m_Text: 'Player ID:'
 --- !u!222 &595400485
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -474,7 +474,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 20.950012, y: 101}
+  m_AnchoredPosition: {x: 0, y: 89}
   m_SizeDelta: {x: 335.9, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1273001344
@@ -631,8 +631,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 80, y: 20.5}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 37.39998, y: 23.625}
+  m_SizeDelta: {x: 112.8, y: 32.75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1584472129
 MonoBehaviour:
@@ -1084,6 +1084,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46e0db5eafbc62f4bb3154b9cf491de7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  participantID: 
+  condition: 0
+  finalScore: 0
+  r1Trials: 0
+  r2Trials: 0
+  actualCorr: []
+  userCorr: []
+  corrDiff: []
 --- !u!4 &1988104568
 Transform:
   m_ObjectHideFlags: 0
