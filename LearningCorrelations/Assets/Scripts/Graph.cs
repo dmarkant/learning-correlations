@@ -45,15 +45,7 @@ public class Graph : MonoBehaviour
         gameplayManager.updateCorrelation(x, y);
 
         //save condition (only do this once)
-        if (condition == 5){
-            if (pointNum == 10){
-                condition = 0;
-            }
-            else if (pointNum == 100){
-                condition = 1;
-            }
-            PlayerPrefs.SetInt("condition", condition);
-        }
+        DataController.Instance.setCondition(pointNum);
 
     }
 
