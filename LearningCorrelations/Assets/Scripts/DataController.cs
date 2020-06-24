@@ -30,10 +30,43 @@ public class DataController : MonoBehaviour
       }
 
     //getters and setters
-    public string getID () {
-        return participantID;
-    }
+    //public string getID () {
+    //    return participantID;
+   // }
     public void setID(string enteredID){
         participantID = enteredID;
+    }
+
+    public void setScore (int score) {
+        finalScore = score;
+    }
+
+    public void setCondition (int cond) {
+        if (cond == 10) {
+            condition = 0;
+        }
+        else if (cond == 100) {
+            condition = 1;
+        }
+    }
+
+    public void setR1Trials (int trials1) {
+        r1Trials = trials1;
+    }
+
+    public void setR2Trials (int trials2) {
+        r2Trials = trials2;
+    }
+
+    public void setActCorr (double corr) {
+        actualCorr.Add(corr);
+    }
+
+    public void setUserCorr (double guess) {
+        userCorr.Add(guess);
+    }
+
+    public void setDiffs (double diff) {
+        corrDiff.Add(diff);
     }
 }

@@ -40,7 +40,7 @@ public class GameplayManager : MonoBehaviour
 
     //start method to display id 
     void Start(){
-        showID.text = DataController.Instance.getID();
+        showID.text = DataController.Instance.participantID;
 
         audioSource = GetComponent<AudioSource>();
     }
@@ -127,6 +127,11 @@ public class GameplayManager : MonoBehaviour
                 round2Trials++;
             }
         }
+
+        //save data
+        DataController.Instance.setActCorr(corr);
+        DataController.Instance.setUserCorr(userGuess);
+        DataController.Instance.setDiffs(guessDiff);
     }
 
     //enables next button
@@ -171,10 +176,13 @@ public class GameplayManager : MonoBehaviour
 
         //show score
         showScore.text = "SCORE: " + score.ToString();
+        
         //save score and trials to use across scenes
-        PlayerPrefs.SetInt("pScore", score);
-        PlayerPrefs.SetInt("r1", round1Trials);
-        PlayerPrefs.SetInt("r2", round2Trials);
+        DataController.Instance.setScore(score);
+        
+        DataController.Instance.setR1Trials(round1Trials);
+     
+        DataController.Instance.setR2Trials(round2Trials);
     }
 
 
