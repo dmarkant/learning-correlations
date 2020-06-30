@@ -13,6 +13,13 @@ public class MainMenu : MonoBehaviour
         //save ID 
         DataController.Instance.participantID = participantID.text;
 
+        //set condition
+        int condition = Random.Range(0, 2);
+        DataController.Instance.setCondition(condition);
+
+        //create trial sequence
+        DataController.Instance.createTrialSequence();
+
         //Load next scene
         SceneManager.LoadScene(3);
     }

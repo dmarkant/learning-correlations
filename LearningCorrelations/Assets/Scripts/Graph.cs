@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,11 +13,6 @@ public class Graph : MonoBehaviour
     //reference for point sprite
     public Sprite pointSprite;
 
-    //number of points being displayed
-    //public int[] levels = new int[] {10, 100};
-    // public int randIndex = Random.Range(0, levels.Length);
-    public int pointNum = 0;
-    public int condition = 5;
     public int samplesize;
 
     //array of points (z-scores)
@@ -35,15 +31,11 @@ public class Graph : MonoBehaviour
 
     //when graph component starts up
     void Awake(){
-        //points
-        int[] levels = new int[] {10, 100};
-        int randIndex = Random.Range(0, levels.Length);
-        //int pointNum = levels[randIndex];
 
-        //load dataset from file
-        samplesize = 100;
-        decimal r = -0.1m;
-        int datasetIndex = Random.Range(0, 100);
+        // get settings for this trial and load dataset from file
+        samplesize = DataController.Instance.getTrialSamplesize();
+        double r = DataController.Instance.getTrialCorrelation();
+        int datasetIndex = UnityEngine.Random.Range(0, 100);
         LoadDataset(samplesize, r, datasetIndex);
 
         //grab gameplay manager
@@ -58,15 +50,14 @@ public class Graph : MonoBehaviour
         //find correlation
         gameplayManager.updateCorrelation(x, y);
 
-        //save condition (only do this once)
-        //DataController.Instance.setCondition(samplesize);
-
     }
 
     //Load dataset of points with desired samplesize and correlation
-    public void LoadDataset(int samplesize, decimal r, int datasetIndex)
+    public void LoadDataset(int samplesize, double r, int datasetIndex)
     {
-        string datasetPath = string.Format("Assets/Files/datasets/dataset_r={0}_n={1}_ind={2}.txt", r, samplesize, datasetIndex);
+        string r_str = String.Format("{0:0.0}", r);
+        string datasetPath = string.Format("Assets/Files/datasets/dataset_r={0}_n={1}_ind={2}.txt", r_str, samplesize, datasetIndex);
+        print(datasetPath);
         string[] lines = File.ReadAllLines(datasetPath);
         string[] coord;
         foreach (var line in lines)

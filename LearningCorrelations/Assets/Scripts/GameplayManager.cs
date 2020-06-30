@@ -41,7 +41,6 @@ public class GameplayManager : MonoBehaviour
     //start method to display id 
     void Start(){
         showID.text = DataController.Instance.participantID;
-
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -179,10 +178,9 @@ public class GameplayManager : MonoBehaviour
         
         //save score and trials to use across scenes
         DataController.Instance.setScore(score);
-        
         DataController.Instance.setR1Trials(round1Trials);
-     
         DataController.Instance.setR2Trials(round2Trials);
+        DataController.Instance.incrementTrial();
     }
 
 
