@@ -54,12 +54,13 @@ public class DataController : MonoBehaviour
     }
 
     public void setCondition (int cond) {
-        if (cond == 10) {
-            condition = 0;
-        }
-        else if (cond == 100) {
-            condition = 1;
-        }
+        //  if (cond == 10) {
+        //    condition = 0;
+        //}
+        //else if (cond == 100) {
+        //  condition = 1;
+        //}
+        condition = cond;
     }
 
     public void incrementTrial()
