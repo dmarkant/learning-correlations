@@ -48,7 +48,7 @@ public class Graph : MonoBehaviour
         showGraph();
 
         //find correlation
-        gameplayManager.updateCorrelation(x, y);
+       // gameplayManager.updateCorrelation(x, y);
 
     }
 
