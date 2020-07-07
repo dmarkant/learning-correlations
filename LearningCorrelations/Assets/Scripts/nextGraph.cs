@@ -30,7 +30,7 @@ public class nextGraph : MonoBehaviour
 
         List<int> x = newGraph.x;
         List<int> y = newGraph.y;
-        gameplayManager.updateCorrelation(x, y);
+        //gameplayManager.updateCorrelation(x, y);
 
         gameplayManager.nextButton.SetActive(false);
 
