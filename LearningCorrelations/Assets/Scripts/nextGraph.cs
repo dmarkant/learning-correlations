@@ -18,7 +18,8 @@ public class nextGraph : MonoBehaviour
         newGraph.Reset();
 
         //check proficiency
-        ProficiencyCheck(gameplayManager, newGraph);
+        //ProficiencyCheck(gameplayManager, newGraph);
+        reachedMaxTrial();
 
         //create new graph
         newGraph.samplesize = DataController.Instance.getTrialSamplesize();
@@ -42,9 +43,9 @@ public class nextGraph : MonoBehaviour
     }
 
     //checks to see if player has gotten correlation value correct 20 times (currently not in a row, easy change)
-    public void ProficiencyCheck(GameplayManager gp, Graph ng){
+    public void reachedMaxTrial(){//ProficiencyCheck() {GameplayManager gp, Graph ng){
         //check if proficiency = 20
-        if (gp.proficiency == 20) {
+       // if (gp.proficiency == 20) {
             //if current level is 10 points, switch to 100
             //if (ng.pointNum == 10){
             //    ng.pointNum = 100;
@@ -53,9 +54,12 @@ public class nextGraph : MonoBehaviour
             //else if (ng.pointNum == 100){
             //    ng.pointNum = 10;
             //}
-        }
-        else if (gp.proficiency >= 40) {
+        //}
+       // else if (gp.proficiency >= 40) {
             //load end scene
+         //   SceneManager.LoadScene(2);
+       // }
+       if (DataController.Instance.trial >= DataController.Instance.getTrialMax()){
             SceneManager.LoadScene(2);
         }
     }
