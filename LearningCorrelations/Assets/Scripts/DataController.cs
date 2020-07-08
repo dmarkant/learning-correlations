@@ -20,8 +20,8 @@ public class DataController : MonoBehaviour
     public string participantID;
     public int condition;
     public int finalScore;
-    public int r1Trials;
-    public int r2Trials;
+    //public int r1Trials;
+   // public int r2Trials;
     public int trial = 0;
     public List<int> sampleSize;
     public List<double> actualCorr;
@@ -41,10 +41,6 @@ public class DataController : MonoBehaviour
         }
       }
 
-    //getters and setters
-    //public string getID () {
-    //    return participantID;
-   // }
     public void setID(string enteredID){
         participantID = enteredID;
     }
@@ -109,6 +105,8 @@ public class DataController : MonoBehaviour
 
     }
 
+
+    //getters and setters
     public double getTrialCorrelation()
     {
         return actualCorr[trial];
@@ -119,13 +117,18 @@ public class DataController : MonoBehaviour
         return sampleSize[trial];
     }
 
-    public void setR1Trials (int trials1) {
-        r1Trials = trials1;
+    public int getTrialMax()
+    {
+        return maxTrials;
     }
 
-    public void setR2Trials (int trials2) {
-        r2Trials = trials2;
-    }
+    //public void setR1Trials (int trials1) {
+    //    r1Trials = trials1;
+    //}
+
+    //public void setR2Trials (int trials2) {
+    //    r2Trials = trials2;
+    //}
 
     public void setActCorr (double corr) {
         actualCorr.Add(corr);
@@ -141,7 +144,7 @@ public class DataController : MonoBehaviour
 
 }
 
-
+//shuffler class
 public static class Shuffler
 {
     public static void Shuffle<T>(this IList<T> list, System.Random rnd)

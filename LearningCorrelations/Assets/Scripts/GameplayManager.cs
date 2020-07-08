@@ -27,7 +27,7 @@ public class GameplayManager : MonoBehaviour
     double corr = 0;
     double guessDiff = 0;
     int score = 0;
-    public int proficiency = 0;
+    //public int proficiency = 0;
 
     //audio variables
     public AudioSource audioSource;
@@ -35,8 +35,8 @@ public class GameplayManager : MonoBehaviour
     public AudioClip incorrectAudio;
 
     //track number of trials
-    public int round1Trials = 0;
-    public int round2Trials = 0;
+    //public int round1Trials = 0;
+    //public int round2Trials = 0;
 
     //start method to display id 
     void Start(){
@@ -123,17 +123,17 @@ public class GameplayManager : MonoBehaviour
             calcScore(guessDiff, corr);
 
             //count trial #
-            if (proficiency <= 20){
-                //round 1
-                round1Trials++;
-            }
-            else{
-                round2Trials++;
-            }
+            //if (proficiency <= 20){
+            //    //round 1
+            //    round1Trials++;
+            //}
+            //else{
+            //    round2Trials++;
+            //}
         }
 
         //save data
-       // DataController.Instance.setActCorr(corr);
+        // DataController.Instance.setActCorr(corr);
         DataController.Instance.setUserCorr(userGuess);
         DataController.Instance.setDiffs(guessDiff);
     }
@@ -153,21 +153,21 @@ public class GameplayManager : MonoBehaviour
         if (diff == 0)
         {
             score = score + 4;
-            proficiency += 1;
+           // proficiency += 1;
             //play sound
             audioSource.PlayOneShot(correctAudio, .75f);
         }
         else if (diff <= .05 & diff >= -.05)
         {
             score = score + 2;
-            proficiency += 1;
+           // proficiency += 1;
             //play sound
             audioSource.PlayOneShot(correctAudio, .75f);
         }
         else if (diff >= .3 | diff <= -.3)
         {
             score = score - 2;
-            proficiency -= 1;
+           // proficiency -= 1;
             //play sound
             audioSource.PlayOneShot(incorrectAudio, .75f);
         }
@@ -183,8 +183,8 @@ public class GameplayManager : MonoBehaviour
         
         //save score and trials to use across scenes
         DataController.Instance.setScore(score);
-        DataController.Instance.setR1Trials(round1Trials);
-        DataController.Instance.setR2Trials(round2Trials);
+        //DataController.Instance.setR1Trials(round1Trials);
+       // DataController.Instance.setR2Trials(round2Trials);
         DataController.Instance.incrementTrial();
     }
 
