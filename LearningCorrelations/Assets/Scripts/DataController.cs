@@ -28,6 +28,9 @@ public class DataController : MonoBehaviour
     public List<double> userCorr;
     public List<double> corrDiff;
 
+    //saving stuff
+    string path = "";
+
    
     //awake method makes this persisten object
     void Awake () {
@@ -40,24 +43,6 @@ public class DataController : MonoBehaviour
             Destroy (gameObject);
         }
       }
-
-    public void setID(string enteredID){
-        participantID = enteredID;
-    }
-
-    public void setScore (int score) {
-        finalScore = score;
-    }
-
-    public void setCondition (int cond) {
-        //  if (cond == 10) {
-        //    condition = 0;
-        //}
-        //else if (cond == 100) {
-        //  condition = 1;
-        //}
-        condition = cond;
-    }
 
     public void incrementTrial()
     {
@@ -105,21 +90,53 @@ public class DataController : MonoBehaviour
 
     }
 
+    //saving mehtods
+    public void initSave() {
+        using (System.IO.StreamWriter file = new System.IO.StreamWriter(path, true)) {
+            file.WriteLine(participantID + "," + condition + "," + maxTrials + "," + trialsPerBlock + "," + numBlocks);
+        }
+    }
 
-    //getters and setters
-    public double getTrialCorrelation()
-    {
+    public void logData (string userguess, string diff, string graphIndex) {
+        using (System.IO.StreamWriter file = new System.IO.StreamWriter(path, true))
+        {
+            file.WriteLine(trial + "," + getTrialSamplesize() + "," + graphIndex + "," + getTrialCorrelation() + "," + userguess + "," + diff + "," + finalScore);
+        }
+    }
+
+
+    //getters and setters 
+    public void setID(string enteredID){
+        participantID = enteredID;
+    }
+
+    public void setScore (int score) {
+        finalScore = score;
+    }
+
+    public void setCondition (int cond) {
+        //  if (cond == 10) {
+        //    condition = 0;
+        //}
+        //else if (cond == 100) {
+        //  condition = 1;
+        //}
+        condition = cond;
+    }
+    public double getTrialCorrelation(){
         return actualCorr[trial];
     }
 
-    public int getTrialSamplesize()
-    {
+    public int getTrialSamplesize(){
         return sampleSize[trial];
     }
 
-    public int getTrialMax()
-    {
+    public int getTrialMax() {
         return maxTrials;
+    }
+
+    public void setPath (string filePath){
+        path = filePath;
     }
 
     //public void setR1Trials (int trials1) {
@@ -141,6 +158,16 @@ public class DataController : MonoBehaviour
     public void setDiffs (double diff) {
         corrDiff.Add(diff);
     }
+
+    //public string getTrialUserCorr()
+    //{
+    //    return userCorr[trial].ToString();
+    //}
+
+    //public string getTrialDiff()
+    //{
+    //    return corrDiff[trial].ToString();
+    //}
 
 }
 

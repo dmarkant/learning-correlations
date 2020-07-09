@@ -17,6 +17,12 @@ public class MainMenu : MonoBehaviour
         int condition = Random.Range(0, 2);
         DataController.Instance.setCondition(condition);
 
+        //set file path
+        DataController.Instance.setPath("Assets/Files/" + participantID.text + ".csv");
+
+        //initial save
+        DataController.Instance.initSave();
+
         //create trial sequence
         DataController.Instance.createTrialSequence();
 
