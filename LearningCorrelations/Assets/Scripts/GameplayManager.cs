@@ -27,6 +27,7 @@ public class GameplayManager : MonoBehaviour
     double corr = 0;
     double guessDiff = 0;
     int score = 0;
+    int graphIndex = 0;
     //public int proficiency = 0;
 
     //audio variables
@@ -184,9 +185,13 @@ public class GameplayManager : MonoBehaviour
         //save score and trials to use across scenes
         DataController.Instance.setScore(score);
         //DataController.Instance.setR1Trials(round1Trials);
-       // DataController.Instance.setR2Trials(round2Trials);
-        DataController.Instance.incrementTrial();
+        // DataController.Instance.setR2Trials(round2Trials);
+        DataController.Instance.logData(userGuess.ToString(), guessDiff.ToString(), graphIndex.ToString());
+       // DataController.Instance.incrementTrial();
     }
 
+    public void setGraphIndex (int index) {
+        graphIndex = index;
+    }
 
 }
