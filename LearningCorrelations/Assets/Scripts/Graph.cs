@@ -89,7 +89,7 @@ public class Graph : MonoBehaviour
         rectTransform.anchoredPosition = anchoredPosition;
 
         //sizes of point
-        rectTransform.sizeDelta = new Vector2(11, 11);
+        rectTransform.sizeDelta = new Vector2(9, 9);
         rectTransform.anchorMin = new Vector2(0, 0);
         rectTransform.anchorMax = new Vector2(0, 0);
 
