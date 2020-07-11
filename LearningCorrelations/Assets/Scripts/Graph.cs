@@ -44,7 +44,6 @@ public class Graph : MonoBehaviour
 
         //grab gameplay manager
         gameplayManager = GameObject.FindObjectOfType<GameplayManager>();
-        gameplayManager.setGraphIndex(datasetIndex);
 
         //grabing the graph object
         graphContainer = transform.Find("graphContainer").GetComponent<RectTransform>();
@@ -63,6 +62,7 @@ public class Graph : MonoBehaviour
         string r_str = String.Format("{0:0.0}", r);
         string datasetPath = string.Format("Assets/Files/datasets/dataset_r={0}_n={1}_ind={2}.txt", r_str, samplesize, datasetIndex);
         print(datasetPath);
+        DataController.Instance.setGraphIndex(datasetIndex.ToString());
         string[] lines = File.ReadAllLines(datasetPath);
         string[] coord;
         foreach (var line in lines)
@@ -147,8 +147,6 @@ public class Graph : MonoBehaviour
         //destroy old points
         newGraph.Reset();
         DataController.Instance.incrementTrial();
-        //check proficiency
-        //ProficiencyCheck(gameplayManager, newGraph);
         reachedMaxTrial();
 
         //create new graph
@@ -172,26 +170,9 @@ public class Graph : MonoBehaviour
 
     }
 
-    //checks to see if player has gotten correlation value correct 20 times (currently not in a row, easy change)
-    public void reachedMaxTrial()
-    {//ProficiencyCheck() {GameplayManager gp, Graph ng){
-     //check if proficiency = 20
-     // if (gp.proficiency == 20) {
-     //if current level is 10 points, switch to 100
-     //if (ng.pointNum == 10){
-     //    ng.pointNum = 100;
-     //}
-     //if current level is 100 points, switch to 10
-     //else if (ng.pointNum == 100){
-     //    ng.pointNum = 10;
-     //}
-     //}
-     // else if (gp.proficiency >= 40) {
-     //load end scene
-     //   SceneManager.LoadScene(2);
-     // }
-        if (DataController.Instance.trial >= DataController.Instance.getTrialMax())
-        {
+    //checks to see if player has reach the max number of trials
+    public void reachedMaxTrial() {
+        if (DataController.Instance.trial >= DataController.Instance.getTrialMax()) {
             SceneManager.LoadScene(2);
         }
     }

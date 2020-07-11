@@ -27,17 +27,11 @@ public class GameplayManager : MonoBehaviour
     double corr = 0;
     double guessDiff = 0;
     int score = 0;
-    int graphIndex = 0;
-    //public int proficiency = 0;
 
     //audio variables
     public AudioSource audioSource;
     public AudioClip correctAudio;
     public AudioClip incorrectAudio;
-
-    //track number of trials
-    //public int round1Trials = 0;
-    //public int round2Trials = 0;
 
     //start method to display id 
     void Start(){
@@ -54,8 +48,79 @@ public class GameplayManager : MonoBehaviour
             enableButton();
         }
     }
+    
+    //show entered guess and calculate difference
+    public void guessCalculation(){
+        //ensure user entered answer then run code
+        if (guessInput.text != "") {
 
-    ////Method to calculate the correlation value
+            //round the correlation, otherwise it can have many places after the decimal
+            corr = (double) Math.Round(DataController.Instance.getTrialCorrelation(), 2, MidpointRounding.AwayFromZero);
+
+            showText.text = "Your Guess: " + guessInput.text;
+
+            showCorr.text = "Pearson Correlation: " + corr.ToString();
+
+            userGuess = double.Parse(guessInput.text);
+
+            guessDiff = userGuess - corr;
+
+            showDiff.text = "Difference: " + guessDiff.ToString();
+
+            calcScore(guessDiff, corr);
+        }
+
+        //save data
+        DataController.Instance.setUserCorr(userGuess);
+        DataController.Instance.setDiffs(guessDiff);
+    }
+
+    //enables next button
+    public void enableButton(){
+        //able to select next button if user entered answer
+        if (guessInput.text != "") {
+            nextButton.SetActive(true);
+        }
+    }
+
+    //determines score based on user response
+    public void calcScore(double diff, double correlation)
+    {
+        //determine score increase or decrease
+        if (diff == 0)
+        {
+            score = score + 4;
+            //play sound
+            audioSource.PlayOneShot(correctAudio, .75f);
+        }
+        else if (diff <= .05 & diff >= -.05)
+        {
+            score = score + 2;
+            //play sound
+            audioSource.PlayOneShot(correctAudio, .75f);
+        }
+        else if (diff >= .3 | diff <= -.3)
+        {
+            score = score - 2;
+            //play sound
+            audioSource.PlayOneShot(incorrectAudio, .75f);
+        }
+        else
+        {
+            score = score + 0;
+            //play sound
+            audioSource.PlayOneShot(incorrectAudio, .75f);
+        }
+
+        //show score
+        showScore.text = "SCORE: " + score.ToString();
+        
+        //save score and trials to use across scenes
+        DataController.Instance.setScore(score);
+        DataController.Instance.logData(userGuess.ToString(), guessDiff.ToString());
+    }
+
+////Method to calculate the correlation value
     //public void updateCorrelation(List<int> x, List<int> y){
 
     //    //values for pearson correlation coefficient
@@ -101,97 +166,4 @@ public class GameplayManager : MonoBehaviour
     //    print(corr);
 
     //}
-
-
-    //show entered guess and calculate difference
-    public void guessCalculation(){
-        //ensure user entered answer then run code
-        if (guessInput.text != "") {
-
-            //round the correlation, otherwise it can have many places after the decimal
-            corr = (double) Math.Round(DataController.Instance.getTrialCorrelation(), 2, MidpointRounding.AwayFromZero);
-
-            showText.text = "Your Guess: " + guessInput.text;
-
-            showCorr.text = "Pearson Correlation: " + corr.ToString();
-
-            userGuess = double.Parse(guessInput.text);
-
-            guessDiff = userGuess - corr;
-
-            showDiff.text = "Difference: " + guessDiff.ToString();
-
-            calcScore(guessDiff, corr);
-
-            //count trial #
-            //if (proficiency <= 20){
-            //    //round 1
-            //    round1Trials++;
-            //}
-            //else{
-            //    round2Trials++;
-            //}
-        }
-
-        //save data
-        // DataController.Instance.setActCorr(corr);
-        DataController.Instance.setUserCorr(userGuess);
-        DataController.Instance.setDiffs(guessDiff);
-    }
-
-    //enables next button
-    public void enableButton(){
-        //able to select next button if user entered answer
-        if (guessInput.text != "") {
-            nextButton.SetActive(true);
-        }
-    }
-
-    //determines score based on user response
-    public void calcScore(double diff, double correlation)
-    {
-        //determine score increase or decrease
-        if (diff == 0)
-        {
-            score = score + 4;
-           // proficiency += 1;
-            //play sound
-            audioSource.PlayOneShot(correctAudio, .75f);
-        }
-        else if (diff <= .05 & diff >= -.05)
-        {
-            score = score + 2;
-           // proficiency += 1;
-            //play sound
-            audioSource.PlayOneShot(correctAudio, .75f);
-        }
-        else if (diff >= .3 | diff <= -.3)
-        {
-            score = score - 2;
-           // proficiency -= 1;
-            //play sound
-            audioSource.PlayOneShot(incorrectAudio, .75f);
-        }
-        else
-        {
-            score = score + 0;
-            //play sound
-            audioSource.PlayOneShot(incorrectAudio, .75f);
-        }
-
-        //show score
-        showScore.text = "SCORE: " + score.ToString();
-        
-        //save score and trials to use across scenes
-        DataController.Instance.setScore(score);
-        //DataController.Instance.setR1Trials(round1Trials);
-        // DataController.Instance.setR2Trials(round2Trials);
-        DataController.Instance.logData(userGuess.ToString(), guessDiff.ToString(), graphIndex.ToString());
-       // DataController.Instance.incrementTrial();
-    }
-
-    public void setGraphIndex (int index) {
-        graphIndex = index;
-    }
-
 }

@@ -20,13 +20,12 @@ public class DataController : MonoBehaviour
     public string participantID;
     public int condition;
     public int finalScore;
-    //public int r1Trials;
-   // public int r2Trials;
     public int trial = 0;
     public List<int> sampleSize;
     public List<double> actualCorr;
     public List<double> userCorr;
     public List<double> corrDiff;
+    public string graphIndex;
 
     //saving stuff
     string path = "";
@@ -97,7 +96,7 @@ public class DataController : MonoBehaviour
         }
     }
 
-    public void logData (string userguess, string diff, string graphIndex) {
+    public void logData (string userguess, string diff) {
         using (System.IO.StreamWriter file = new System.IO.StreamWriter(path, true))
         {
             file.WriteLine(trial + "," + getTrialSamplesize() + "," + graphIndex + "," + getTrialCorrelation() + "," + userguess + "," + diff + "," + finalScore);
@@ -115,12 +114,6 @@ public class DataController : MonoBehaviour
     }
 
     public void setCondition (int cond) {
-        //  if (cond == 10) {
-        //    condition = 0;
-        //}
-        //else if (cond == 100) {
-        //  condition = 1;
-        //}
         condition = cond;
     }
     public double getTrialCorrelation(){
@@ -139,14 +132,6 @@ public class DataController : MonoBehaviour
         path = filePath;
     }
 
-    //public void setR1Trials (int trials1) {
-    //    r1Trials = trials1;
-    //}
-
-    //public void setR2Trials (int trials2) {
-    //    r2Trials = trials2;
-    //}
-
     public void setActCorr (double corr) {
         actualCorr.Add(corr);
     }
@@ -159,15 +144,10 @@ public class DataController : MonoBehaviour
         corrDiff.Add(diff);
     }
 
-    //public string getTrialUserCorr()
-    //{
-    //    return userCorr[trial].ToString();
-    //}
-
-    //public string getTrialDiff()
-    //{
-    //    return corrDiff[trial].ToString();
-    //}
+    public void setGraphIndex (string index)
+    {
+        graphIndex = index;
+    }
 
 }
 
