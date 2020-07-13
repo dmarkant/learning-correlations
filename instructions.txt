@@ -1,0 +1,40 @@
+# Learning Correlations
+
+## Main menu
+
+Take the Tutorial! 
+Instructions
+Play
+
+## Tutorial
+
+A basic goal of statistics is to detect relationships between variables. 
+- Is ____ related to ____? (Cycle through variable sets)
+	- X: height; Y: confidence
+	- X: cell phone use; Y: cancer
+	- X: income; Y: political leaning
+
+This game teaches you to identify the strength of the relationship between two variables based on a common data visualization known as a scatterplot, as quantified by a statistic known as the Pearson correlation. 
+
+The Pearson correlation is a number between -1 and +1 that indicates the extent to which two variables are related. You can use the Pearson correlation to judge whether knowing the value of one variable X allows you to predict the value of a second variable Y.
+
+A Pearson correlation of +1 indicates a perfectly positive relationship, such that an increase in X is matched by an equivalent increase in Y. Imagine that you measured the height of a number of people in inches (X), and then you again measured their heights in centimeters (Y). The numbers that you get for X and Y will be different, but because they are measuring the same thing those variables will be perfectly correlated: People who are taller in inches will always be taller in centimeters.
+
+A Pearson correlation of -1 indicates a perfectly negative relationship, such that an increase in X is matched by an equivalent decrease in Y. <need example>
+
+A Pearson correlation of 0 indicates that the two variables X and Y are unrelated. In other words, an increase in X is not associated with a consistent change in either direction for variable Y. 
+
+And of course, the Pearson correlation can fall anywhere between -1 and +1, which indicate weaker relationships between variables. For example, <need example of weak positive relationship>.
+
+## Instructions
+
+In this game, you'll learn to identify the Pearson correlation between two variables through trial and error. 
+- On each turn of the game you'll see a scatterplot of data points. 
+- You will then guess the correlation (from -1 to +1) and receive feedback about how close you were to the actual correlation for that dataset.
+- Your final score will depend on how quickly you can learn to identify the correlation across many different datasets.
+
+Buttons:
+- see these instructions again
+- play
+
+
