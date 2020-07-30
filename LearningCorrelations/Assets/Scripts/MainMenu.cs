@@ -27,11 +27,34 @@ public class MainMenu : MonoBehaviour
         DataController.Instance.createTrialSequence();
 
         //Load next scene
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(4);
     }
 
     public void LeaveInstructions()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void toInstructions()
+    {
+        SceneManager.LoadScene(3);
+    }
+
+    public void nextTutoral()
+    {
+        int scene = SceneManager.GetActiveScene().buildIndex;
+
+        if (scene == 4)
+        {
+            SceneManager.LoadScene(5);
+        }
+        else if (scene == 5)
+        {
+            SceneManager.LoadScene(6);
+        }
+        else if (scene == 6)
+        {
+            SceneManager.LoadScene(7);
+        }
     }
 }
