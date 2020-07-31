@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 551885863}
   - component: {fileID: 551885862}
   m_Layer: 5
-  m_Name: play
+  m_Name: back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -269,7 +269,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: PLAY
+  m_Text: MAIN MENU
 --- !u!222 &551885863
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -439,7 +439,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1322750612}
-        m_MethodName: LeaveInstructions
+        m_MethodName: toMain
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -753,6 +753,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   participantID: {fileID: 0}
+  tuttxt1: {fileID: 0}
+  tuttxt2: {fileID: 0}
+  tuttxt3: {fileID: 0}
+  tuttxt4: {fileID: 0}
+  backMain: {fileID: 0}
+  next: {fileID: 0}
 --- !u!1 &1512827289
 GameObject:
   m_ObjectHideFlags: 0
