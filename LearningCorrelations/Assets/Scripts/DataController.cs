@@ -27,6 +27,9 @@ public class DataController : MonoBehaviour
     public List<double> corrDiff;
     public string graphIndex;
 
+    //main menu condition
+    public int canPlay = 0;
+
     //saving stuff
     string path = "";
 
