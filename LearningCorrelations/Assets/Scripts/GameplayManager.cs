@@ -12,12 +12,14 @@ public class GameplayManager : MonoBehaviour
     public Text showText;
     public Text showDiff;
     public Text showScore;
+    public Text sliderValue;
 
     //test id transfer
     public Text showID;
 
     //reference for input field
-    public InputField guessInput;
+    //public InputField guessInput;
+    public Slider guessInput;
 
     //reference for next button
     public GameObject nextButton;
@@ -47,21 +49,23 @@ public class GameplayManager : MonoBehaviour
             guessCalculation();
             enableButton();
         }
+
+        sliderValue.text = guessInput.value.ToString();
     }
     
     //show entered guess and calculate difference
     public void guessCalculation(){
         //ensure user entered answer then run code
-        if (guessInput.text != "") {
+        if (/*guessInput.text*/guessInput.value.ToString() != "") {
 
             //round the correlation, otherwise it can have many places after the decimal
             corr = (double) Math.Round(DataController.Instance.getTrialCorrelation(), 2, MidpointRounding.AwayFromZero);
 
-            showText.text = "Your Guess: " + guessInput.text;
+            showText.text = "Your Guess: " + /*guessInput.text*/guessInput.value.ToString();
 
             showCorr.text = "Pearson Correlation: " + corr.ToString();
 
-            userGuess = double.Parse(guessInput.text);
+            userGuess = double.Parse(/*guessInput.text*/guessInput.value.ToString());
 
             guessDiff = userGuess - corr;
 
@@ -78,7 +82,7 @@ public class GameplayManager : MonoBehaviour
     //enables next button
     public void enableButton(){
         //able to select next button if user entered answer
-        if (guessInput.text != "") {
+        if (guessInput.value.ToString() != "") {
             nextButton.SetActive(true);
         }
     }
