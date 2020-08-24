@@ -50,7 +50,10 @@ public class GameplayManager : MonoBehaviour
             enableButton();
         }
 
-        sliderValue.text = guessInput.value.ToString();
+        //update displayed correlation under slider
+        userGuess = (double.Parse(guessInput.value.ToString()) - 10)/10;
+        sliderValue.text = userGuess.ToString();
+        //sliderValue.text = guessInput.value.ToString();
     }
     
     //show entered guess and calculate difference
@@ -60,12 +63,16 @@ public class GameplayManager : MonoBehaviour
 
             //round the correlation, otherwise it can have many places after the decimal
             corr = (double) Math.Round(DataController.Instance.getTrialCorrelation(), 2, MidpointRounding.AwayFromZero);
+            userGuess = (double.Parse(guessInput.value.ToString()) - 10) / 10;
 
-            showText.text = "Your Guess: " + /*guessInput.text*/guessInput.value.ToString();
+            //userGuess = (double)(guessInput.value - 10) / 10;
+            showText.text = "Your Guess: " + userGuess.ToString();
+
+            //showText.text = "Your Guess: " + /*guessInput.text*/guessInput.value.ToString();
 
             showCorr.text = "Pearson Correlation: " + corr.ToString();
 
-            userGuess = double.Parse(/*guessInput.text*/guessInput.value.ToString());
+            //userGuess = double.Parse(/*guessInput.text*/guessInput.value.ToString());
 
             guessDiff = userGuess - corr;
 
