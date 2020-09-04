@@ -10,10 +10,12 @@ public class MainMenu : MonoBehaviour
     public InputField participantID;
 
     //references for text and buttons
-    public Text tuttxt1;
-    public Text tuttxt2;
-    public Text tuttxt3;
-    public Text tuttxt4;
+    public Image tutimg1;
+    public Image tutimg2;
+    public Image tutimg3;
+    public Image tutimg4;
+    public Image tutimg5;
+    public Image tutimg6;
     public Button backMain;
     public Button next;
     public Button instruct;
@@ -75,17 +77,27 @@ public class MainMenu : MonoBehaviour
             SceneManager.LoadScene(4);
         }
         //cycle through the text objects
-        else if (tuttxt1.enabled == true) {
-            tuttxt1.enabled = false;
-            tuttxt2.enabled = true;
+        else if (tutimg1.enabled == true) {
+            tutimg1.enabled = false;
+            tutimg2.enabled = true;
         }
-        else if (tuttxt2.enabled == true) {
-            tuttxt2.enabled = false;
-            tuttxt3.enabled = true;
+        else if (tutimg2.enabled == true) {
+            tutimg2.enabled = false;
+            tutimg3.enabled = true;
         }
-        else if (tuttxt3.enabled == true) {
-            tuttxt3.enabled = false;
-            tuttxt4.enabled = true;
+        else if (tutimg3.enabled == true) {
+            tutimg3.enabled = false;
+            tutimg4.enabled = true;
+        }
+        else if (tutimg4.enabled == true)
+        {
+            tutimg4.enabled = false;
+            tutimg5.enabled = true;
+        }
+        else if (tutimg5.enabled == true)
+        {
+            tutimg5.enabled = false;
+            tutimg6.enabled = true;
             next.interactable = false;
             backMain.interactable = true;
             DataController.Instance.canPlay++;
