@@ -16,8 +16,13 @@ public class MainMenu : MonoBehaviour
     public Image tutimg4;
     public Image tutimg5;
     public Image tutimg6;
+    public Image instruct1;
+    public Image instruct2;
+    public Image instruct3;
     public Button backMain;
     public Button next;
+    public Button backMainI;
+    public Button nextI;
     public Button instruct;
     public Button play;
     
@@ -58,8 +63,26 @@ public class MainMenu : MonoBehaviour
     public void toInstructions()
     {
         //go to the instruction scene
-        DataController.Instance.canPlay++;
-        SceneManager.LoadScene(3); 
+        int scene = SceneManager.GetActiveScene().buildIndex;
+
+        if (scene == 0)
+        {
+            DataController.Instance.canPlay++;
+            SceneManager.LoadScene(3);
+        }
+        else if (instruct1.enabled == true)
+        {
+            instruct1.enabled = false;
+            instruct2.enabled = true;
+        }
+        else if (instruct2.enabled == true)
+        {
+            instruct2.enabled = false;
+            instruct3.enabled = true;
+            nextI.interactable = false;
+            backMainI.interactable = true;
+        }
+
     }
 
     public void toMain ()
@@ -103,4 +126,6 @@ public class MainMenu : MonoBehaviour
             DataController.Instance.canPlay++;
         }
     }
+
+
 }
