@@ -167,7 +167,7 @@ public class Graph : MonoBehaviour
         gameplayManager.showDiff.text = "Difference: ";
         gameplayManager.showCorr.text = "Pearson Correlation: ";
         gameplayManager.showText.text = "Your Guess: ";
-
+        gameplayManager.submitButton.SetActive(true);
     }
 
     //checks to see if player has reach the max number of trials

@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     //reference for participant ID
-    public InputField participantID;
+    //public InputField participantID;
+    public Text participantID;
 
     //references for text and buttons
     public Image tutimg1;
@@ -28,6 +29,9 @@ public class MainMenu : MonoBehaviour
     
 
     public void PlayGame(){
+
+        participantID.text = Random.Range(1000, 2000).ToString();
+
         //ensure id has been entered
         if (participantID.text != "") {
             //save ID 
@@ -59,6 +63,7 @@ public class MainMenu : MonoBehaviour
             play.interactable = true;
         }
     }
+
 
     public void toInstructions()
     {

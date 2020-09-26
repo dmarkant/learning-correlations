@@ -106,6 +106,13 @@ public class DataController : MonoBehaviour
         }
     }
 
+    public void recordEndingNum(string finalNum) {
+        using (System.IO.StreamWriter file = new System.IO.StreamWriter(path, true))
+        {
+            file.WriteLine(finalNum);
+        }
+    }
+
 
     //getters and setters 
     public void setID(string enteredID){
