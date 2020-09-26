@@ -23,6 +23,7 @@ public class GameplayManager : MonoBehaviour
 
     //reference for next button
     public GameObject nextButton;
+    public GameObject submitButton;
 
     //variables to save
     double userGuess = 0;
@@ -58,6 +59,7 @@ public class GameplayManager : MonoBehaviour
     
     //show entered guess and calculate difference
     public void guessCalculation(){
+        submitButton.SetActive(false);
         //ensure user entered answer then run code
         if (/*guessInput.text*/guessInput.value.ToString() != "") {
 
