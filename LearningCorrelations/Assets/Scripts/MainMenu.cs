@@ -30,7 +30,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame(){
 
-        participantID.text = Random.Range(1000, 2000).ToString();
+        //participantID.text = Random.Range(1000, 2000).ToString();
 
         //ensure id has been entered
         if (participantID.text != "") {
@@ -60,6 +60,7 @@ public class MainMenu : MonoBehaviour
         //check if the tutorial and instructions have been viewed
         if (DataController.Instance.canPlay >= 2)
         {
+            participantID.text = Random.Range(1000, 2000).ToString();
             play.interactable = true;
         }
     }
