@@ -125,8 +125,9 @@ public class Graph : MonoBehaviour
         for (int i = 0; i < samplesize; i++){
 
             // convert z-scores to coordinates on graph
-            int xPosition = (int)(margin + (graphWidth-margin) * ((z_x[i] + 3) / 6));
-            int yPosition = (int)(margin + (graphHeight-margin) * ((z_y[i] + 3) / 6));
+            double range = 7;
+            int xPosition = (int)(margin + (graphWidth-margin) * ((z_x[i] + range/2) / range));
+            int yPosition = (int)(margin + (graphHeight-margin) * ((z_y[i] + range/2) / range));
 
             //create each point with new random location
             CreatePoints(new Vector2(xPosition, yPosition));
