@@ -10,8 +10,8 @@ public class DataController : MonoBehaviour
     public static DataController Instance;
 
     //general settings (get these from somewhere else?)
-    public static int maxTrials = 180;
-    public static int trialsPerBlock = 20;
+    public static int maxTrials = 126;
+    public static int trialsPerBlock = 21;
     public static int numBlocks = maxTrials / trialsPerBlock;
 
     public static int[] samplesizes = new int[] { 10, 50, 100 };
