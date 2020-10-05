@@ -12,6 +12,7 @@ public class EndMenu : MonoBehaviour
     [SerializeField] private Text scoreTxt;
     [SerializeField] private Text idTxt;
     [SerializeField] private Text randEndNum;
+    private int randNum;
     //string path;
 
     // Start is called before the first frame update
@@ -19,7 +20,7 @@ public class EndMenu : MonoBehaviour
         //variables
         string id = DataController.Instance.participantID;
         int score = DataController.Instance.finalScore;
-        int randNum = Random.Range(1000, 2000);
+        randNum = Random.Range(1000, 2000);
         DataController.Instance.recordEndingNum(randNum.ToString());
 
         //display end information
@@ -28,6 +29,6 @@ public class EndMenu : MonoBehaviour
         scoreTxt.text = "Score: " + score;
 
         //display random end number
-        randEndNum.text = "Number for Qualtrics: " + randNum;
+        randEndNum.text = "Number for Qualtrics: " + randNum.ToString();
     }
 }
