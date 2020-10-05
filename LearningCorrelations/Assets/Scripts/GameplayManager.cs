@@ -38,7 +38,8 @@ public class GameplayManager : MonoBehaviour
 
     //start method to display id 
     void Start(){
-        showID.text = DataController.Instance.participantID;
+        //showID.text = DataController.Instance.participantID;
+        showID.text = DataController.Instance.trial + "/" + DataController.Instance.getTrialMax();
         audioSource = GetComponent<AudioSource>();
     }
 

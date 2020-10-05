@@ -169,6 +169,12 @@ public class Graph : MonoBehaviour
         gameplayManager.showCorr.text = "Pearson Correlation: ";
         gameplayManager.showText.text = "Your Guess: ";
         gameplayManager.submitButton.SetActive(true);
+
+        //reset slider
+        gameplayManager.guessInput.value = 10F;
+
+        //set trial num
+        gameplayManager.showID.text = DataController.Instance.trial + "/" + DataController.Instance.getTrialMax();
     }
 
     //checks to see if player has reach the max number of trials
