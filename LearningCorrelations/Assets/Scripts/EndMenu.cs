@@ -29,6 +29,6 @@ public class EndMenu : MonoBehaviour
         scoreTxt.text = "Score: " + score;
 
         //display random end number
-        randEndNum.text = "Number for Qualtrics: " + randNum.ToString();
+        randEndNum.text = "Number for Qualtrics: " + randNum;
     }
 }
