@@ -113,7 +113,7 @@ public class GameplayManager : MonoBehaviour
             //play sound
             audioSource.PlayOneShot(correctAudio, .75f);
         }
-        else if (diff >= .3 | diff <= -.3)
+        else if (diff >= .3 | diff <= -.3 && score > 0)
         {
             score = score - 2;
             //play sound

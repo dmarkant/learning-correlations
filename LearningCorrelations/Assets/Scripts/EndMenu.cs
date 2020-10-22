@@ -12,6 +12,7 @@ public class EndMenu : MonoBehaviour
     [SerializeField] private Text scoreTxt;
     [SerializeField] private Text idTxt;
     [SerializeField] private Text randEndNum;
+    [SerializeField] private Text bonusAmnt;
     private int randNum;
     //string path;
 
@@ -27,6 +28,26 @@ public class EndMenu : MonoBehaviour
         idTxt.text = "ID: " + id;
 
         scoreTxt.text = "Score: " + score;
+
+        //calculate bonus ammount
+        if (score <= 50) {
+
+        }
+        else if (score > 50 && score <= 100) {
+            bonusAmnt.text = "$0";
+        }
+        else if (score > 50 && score <= 100) {
+            bonusAmnt.text = "$1";
+        }
+        else if (score > 100 && score <= 150) {
+            bonusAmnt.text = "$2";
+        }
+        else if (score > 150 && score <= 200) {
+            bonusAmnt.text = "$3";
+        }
+        else if (score > 200) {
+            bonusAmnt.text = "$4";
+        }
 
         //display random end number
         randEndNum.text = "Number for Qualtrics: " + randNum;
