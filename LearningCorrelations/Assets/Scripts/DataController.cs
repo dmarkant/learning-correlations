@@ -14,7 +14,7 @@ public class DataController : MonoBehaviour
     public static int trialsPerBlock = 21;
     public static int numBlocks = maxTrials / trialsPerBlock;
 
-    public static int[] samplesizes = new int[] { 10, 50, 100 };
+    public static int[] samplesizes = new int[] { 10, 50, 90 };
 
     //data variables
     public string participantID;
@@ -75,6 +75,9 @@ public class DataController : MonoBehaviour
             }
 
         }
+
+        rnd = new System.Random();
+        Shuffler.Shuffle(samplesizes, rnd);
 
         // assign sample size to each trial based on condition
         for (int trial = 0; trial < maxTrials; trial++)

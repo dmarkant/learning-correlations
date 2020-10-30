@@ -73,7 +73,7 @@ public class GameplayManager : MonoBehaviour
 
             //showText.text = "Your Guess: " + /*guessInput.text*/guessInput.value.ToString();
 
-            showCorr.text = "Pearson Correlation: " + corr.ToString();
+            showCorr.text = "Actual Correlation: " + corr.ToString();
 
             //userGuess = double.Parse(/*guessInput.text*/guessInput.value.ToString());
 
@@ -107,7 +107,7 @@ public class GameplayManager : MonoBehaviour
             //play sound
             audioSource.PlayOneShot(correctAudio, .75f);
         }
-        else if (diff <= .05 & diff >= -.05)
+        else if (diff <= .1 & diff >= -.1)
         {
             score = score + 2;
             //play sound
